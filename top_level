@@ -3,7 +3,7 @@ library ieee;
     
 entity top_level is
     port (
-        CLK100MHZ   : in    std_logic;                     --! Main clock
+        CLK100MHZ   : in    std_logic;                   --! Main clock
         LED       : out   std_logic_vector(15 downto 0); --! Show 16-bit counter value
         CA        : out   std_logic;                     --! Cathode of segment A
         CB        : out   std_logic;                     --! Cathode of segment B
@@ -14,14 +14,12 @@ entity top_level is
         CG        : out   std_logic;                     --! Cathode of segment G
         DP        : out   std_logic;                     --! Decimal point
         AN        : out   std_logic_vector(7 downto 0);  --! Common anodes of all on-board displays
-        BTNC      : in    std_logic;                      --! Synchronous reset
+        BTNC      : in    std_logic;                     --! Synchronous reset
         LED_16G : out STD_LOGIC;
         LED_16R    : out STD_LOGIC;
         SW : in    std_logic
     );
 end entity top_level;
-
--------------------------------------------------
 
 architecture behavioral of top_level is
 
@@ -41,7 +39,6 @@ architecture behavioral of top_level is
 	port ( clk : in STD_LOGIC;
        	   triger : out STD_LOGIC);
 end component ;
-
 
     
     
@@ -73,19 +70,18 @@ end component PS_availability;
 end component distance_measure;
 
 signal sig_trig   : std_logic;
-signal sig_LED_RED: std_logic;
-signal sig_LED_GREEN: std_logic;
 signal sig_distance: std_logic_vector(5 downto 0);
 signal sig_distancein: std_logic;
   
 begin
-
+-- use of component echo triger
    trig: component echo_triger
    port map (
    clk => CLK100MHZ,
    triger => sig_trig
       );
-   
+ 
+-- use of component distance measure  
    distance : component distance_measure
    
    port map(
@@ -95,14 +91,15 @@ begin
     measured_distance => sig_distance
    );
     
+-- use of component Parking Space availability
    PS: component PS_availability
    port map (
    distance_in =>  sig_distancein, 
-   LED_RED     => sig_LED_RED,
-   LED_GREEN   => sig_LED_GREEN 
+   LED_RED     => LED16_R,
+   LED_GREEN   => LED16_G
    );
    
-
+   -- use of component bin2seg
    display :component bin2seg
     Port map(   clear => BTNC,
                 bin => SW,
@@ -121,8 +118,7 @@ begin
     LED <= SW;
 
    
-
-    -- Component instantiation of clock enable for 2 ms
+-- Component instantiation of clock enable for 2 ms
     clk_en1 : component clock_enable
         generic map (
             N_PERIODS => 200_000
@@ -134,5 +130,3 @@ begin
         );
 
             
-
-end architecture behavioral;
