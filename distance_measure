@@ -1,0 +1,43 @@
+library ieee;
+    use ieee.std_logic_1164.all;
+    use ieee.numeric_std.all; 
+-------------------------------------------------
+
+entity distance_measure is
+
+    port (
+        clk   : in    std_logic;                            -- Main clock
+        rst   : in    std_logic;                            -- Reset
+        measured_time    : in    std_logic;                 -- Local counter
+        measured_distance : out   std_logic_vector(5 downto 0) -- Value counter 
+    );
+end entity distance_measure;
+
+-------------------------------------------------
+
+architecture behavioral of distance_measure is
+    --Local counter signal
+    signal sig_count : unsigned (5 downto 0);
+begin
+
+    -- proces simple counter
+    p_simple_counter : process (clk) is
+    begin
+
+        if (rising_edge(clk)) then
+            -- Synchronous, active-high reset
+            if (rst = '1') then
+                sig_count <= (others => '0');
+
+            -- Clock enable activated
+            elsif (measured_time = '1') then
+                sig_count <= sig_count + 1;
+
+            end if;
+        end if;
+
+    end process p_simple_counter;
+
+    measured_distance <= std_logic_vector(sig_count);
+
+end architecture behavioral;
