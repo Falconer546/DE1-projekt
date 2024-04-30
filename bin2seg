@@ -1,0 +1,90 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity bin2seg is
+    Port ( clear : in STD_LOGIC;
+           bin : in STD_LOGIC_VECTOR (5 downto 0);
+           seg : out STD_LOGIC_VECTOR (6 downto 0);
+           an : out std_logic_vector(7 downto 0));
+end bin2seg;
+
+architecture Behavioral of bin2seg is
+
+begin
+
+p_7seg_decoder : process (bin, clear) is
+begin
+
+  if (clear = '1') then
+    seg <= "1111111";  -- Clear the display
+    an <= "11111111";
+  else
+
+    case bin is
+      when x"0" =>    
+        seg <= "1001111";
+        an <= "11111110";
+      when x"1" =>
+        seg <= "1001001";
+        an <= "11111110";
+      when x"2" =>    
+        seg <= "1001111";
+        an <= "11111100";
+      when x"3" =>
+        seg <= "1001001";
+        an <= "11111100";
+        when x"4" =>    
+        seg <= "1001111";
+        an <= "11111000";
+      when x"5" =>
+        seg <= "1001001";
+        an <= "11111000";
+        when x"6" =>    
+        seg <= "1001111";
+        an <= "11110000";
+      when x"7" =>
+        seg <= "1001001";
+        an <= "11110000";
+        when x"8" =>    
+        seg <= "1001111";
+        an <= "11100000";
+      when x"9" =>
+        seg <= "1001001";
+        an <= "11100000";
+        when x"a" =>    
+        seg <= "1001111";
+        an <= "11000000";
+      when x"b" =>
+        seg <= "1001001";
+        an <= "11000000";
+        when x"c" =>    
+        seg <= "1001111";
+        an <= "10000000";
+      when x"d" =>
+        seg <= "1001001";
+        an <= "10000000";
+        when x"e" =>    
+        seg <= "1001111";
+        an <= "00000000";
+      when x"f" =>
+        seg <= "1001001";
+        an <= "00000000";
+        
+    end case;
+
+
+
+
+  end if;    
+end process p_7seg_decoder;
+
+end Behavioral;
