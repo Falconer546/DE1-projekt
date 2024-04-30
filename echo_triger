@@ -1,0 +1,41 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity echo_triger is
+	Port ( clk : in STD_LOGIC;
+       	   triger : out STD_LOGIC);
+end echo_triger;
+
+architecture Behavioral of echo_triger is
+   -- frequency in Hertz
+	constant CLOCK_FREQUENCY_HZ : integer := 1000000; 
+	-- period in microseconds
+	constant PERIOD_uS : integer := 10;         	
+	
+    --signal counter
+	signal counter : unsigned(31 downto 0) := (others => '0'); 
+	--period counter - number of beats per period
+	signal period_count : integer range 0 to CLOCK_FREQUENCY_HZ * PERIOD_uS / 1000000 := 0; 
+	-- output signal
+    signal signal_out : std_logic;
+begin
+	process(clk)
+	begin
+    	if rising_edge(clk) then
+        	-- incrementation of the counter
+        	counter <= counter + 1;
+        	-- when counter is equal to period counter, change of the output signal and reset of the counter
+        	if to_integer(counter) >= period_count then
+            	if signal_out = '0' then
+                	signal_out <= '1';
+            	else
+                	signal_out <= '0';
+            	end if;
+            	--counter reset
+            	counter <= (others => '0'); 
+        	end if;
+    	end if;
+    	triger <= signal_out;
+	end process;
+end Behavioral;
