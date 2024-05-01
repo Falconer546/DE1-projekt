@@ -14,10 +14,10 @@ architecture behavioral of PS_availability is
 
 component distance_measure
 port (
-measured_time 		: in	std_logic;
-triger_in			: in	std_logic;
-clk					: in	std_logic;
-measured_distance	: out	std_logic_vector(5 downto 0));
+  clk   : in    std_logic;                            
+  rst   : in    std_logic;                           
+  measured_time    : in    std_logic;                            
+  measured_distance : out   std_logic_vector(5 downto 0) 
 end component;
 
 signal sig_LED_GREEN: std_logic;
@@ -26,10 +26,10 @@ signal sig_LED_RED	: std_logic;
 begin
 measured_distance: component distance_measure
 port map(
-measured_time		=>  sig_echo_out,		
-triger_in			=>	sig_triger,		
-clk					=>	sig_clk,			
-measured_distance	=>	sig_measure_distance
+  clk => CLK100MHZ, 
+  rst =>  BTNC, 
+  measured_time => sig_distancein,  
+  measured_distance => sig_distance
 );
 
 if sig_measured_distance = ('111111') then
