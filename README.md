@@ -3,7 +3,7 @@
 Topic 1: Smart Parking System with Ultrasonic Sensors
 
 Description: Design and implement a smart parking system using VHDL on the Nexys A7 FPGA board. The system will utilize multiple ultrasonic sensors (HS-SR04) connected to the Pmod connectors for detecting the presence and distance of vehicles within parking spaces. Develop algorithms to analyze sensor data and determine parking space availability. Visualize parking space occupancy status using LEDs, while displaying distance measurements on the 7-segment display.
-![image](https://github.com/Falconer546/DE1-projekt/assets/114109685/19426335-2496-4674-8360-1a874dda3c73)
+![image](https://github.com/Falconer546/DE1-projekt/assets/114109685/959aafb0-10b1-4fa5-93ed-fb0b40ed43ce)
 
 # Team members
 
