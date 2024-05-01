@@ -8,6 +8,8 @@ Description: Design and implement a smart parking system using VHDL on the Nexys
 # Team members
 
 Jan Božejovský, Tomáš Fešar, Roman Knížek, Jiří Vašulín
+
+[Link to GitHub project folder](https://github.com/Falconer546/DE1-projekt)
 # Hardware used
 
 Nexys A7-50T
