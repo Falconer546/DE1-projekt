@@ -4,7 +4,8 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity echo_triger is
 	Port ( clk : in STD_LOGIC;
-       	   triger : out STD_LOGIC);
+         triger : out STD_LOGIC;
+         output : out STD_LOGIC   );
 end echo_triger;
 
 architecture Behavioral of echo_triger is
@@ -37,5 +38,6 @@ begin
         	end if;
     	end if;
     	triger <= signal_out;
+      output <= signal_out;
 	end process;
 end Behavioral;
