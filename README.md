@@ -32,16 +32,26 @@ https://github.com/Falconer546/DE1-projekt/blob/main/echo_triger
 Code for distance_measure module
 https://github.com/Falconer546/DE1-projekt/blob/main/distance_measure
 
+PS_availability module description
+
+PS_availability module decides if the Parking Space is empty or not and controls LED signaling.
+https://github.com/Falconer546/DE1-projekt/blob/main/PS_availability
+
+Bin2seg module description
+
+Bin2seg module translate binary output from distance_measure for seven-segment display.
+https://github.com/Falconer546/DE1-projekt/blob/main/bin2seg
+
+Clk (Clock) module descrition
+
+Clk module is used as reference time stamp between echo_triger and distance_measure.
 
 
 Top_level module description
 
 Top_level module contains all above modules. It connects them together with hardware components.
 https://github.com/Falconer546/DE1-projekt/blob/main/top_level
-# 1
-## 2
-### 3
-#### 4
+
 
 
 
