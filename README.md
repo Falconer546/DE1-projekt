@@ -53,12 +53,6 @@ https://github.com/Falconer546/DE1-projekt/blob/main/PS_availability
 Bin2seg module translate binary output from distance_measure for seven-segment display.
 https://github.com/Falconer546/DE1-projekt/blob/main/bin2seg
 
-#### Clk (Clock) module descrition
-
-Clk module is used as reference time stamp between echo_triger and distance_measure.
-https://github.com/Falconer546/DE1-projekt/blob/main/clk
-
-
 #### Top_level module description
 
 Top_level module contains all above modules. It connects them together with hardware components.
