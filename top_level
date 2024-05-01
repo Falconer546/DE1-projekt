@@ -15,29 +15,23 @@ entity top_level is
         DP        : out   std_logic;                     --! Decimal point
         AN        : out   std_logic_vector(7 downto 0);  --! Common anodes of all on-board displays
         BTNC      : in    std_logic;                     --! Synchronous reset
-        LED_16G : out STD_LOGIC;
-        LED_16R    : out STD_LOGIC;
-        SW : in    std_logic
+        JA[1]     : out   std_logic; 			 --! board output
+        JA[2]     : in    std_logic; 			 --! board input
+        LED_16G   : out   STD_LOGIC;
+        LED_16R   : out   STD_LOGIC;
+        SW        : in    std_logic
     );
 end entity top_level;
 
 architecture behavioral of top_level is
 
- component clock_enable is
-        generic (
-            N_PERIODS : integer
-        );
-        port (
-            clk   : in    std_logic;
-            rst   : in    std_logic;
-            pulse : out   std_logic
-        );
-    end component; 
+
     
     
     component echo_triger is
 	port ( clk : in STD_LOGIC;
-       	   triger : out STD_LOGIC);
+       	       triger : out STD_LOGIC;
+               output : out STD_LOGIC);
 end component ;
 
     
@@ -71,14 +65,14 @@ end component distance_measure;
 
 signal sig_trig   : std_logic;
 signal sig_distance: std_logic_vector(5 downto 0);
-signal sig_distancein: std_logic;
   
 begin
 -- use of component echo triger
    trig: component echo_triger
    port map (
    clk => CLK100MHZ,
-   triger => sig_trig
+   triger => sig_trig,
+   output =>  JA[1]
       );
  
 -- use of component distance measure  
@@ -86,15 +80,15 @@ begin
    
    port map(
     clk => CLK100MHZ, 
-    rst =>  BTNC, 
-    measured_time => sig_distancein,  
+    rst =>  sig_trig, 
+    measured_time =>  JA[2],  
     measured_distance => sig_distance
    );
     
 -- use of component Parking Space availability
    PS: component PS_availability
    port map (
-   distance_in =>  sig_distancein, 
+   distance_in =>  sig_distance, 
    LED_RED     => LED16_R,
    LED_GREEN   => LED16_G
    );
@@ -118,15 +112,6 @@ begin
     LED <= SW;
 
    
--- Component instantiation of clock enable for 2 ms
-    clk_en1 : component clock_enable
-        generic map (
-            N_PERIODS => 200_000
-        )
-        port map (
-            clk   => CLK100MHZ,
-            rst   => BTNC,
-            pulse => sig_en_2ms
-        );
+
 
             
