@@ -11,8 +11,14 @@ Jan Božejovský, Tomáš Fešar, Roman Knížek, Jiří Vašulín
 # Hardware used
 
 Nexys A7-50T
+
 FPGA
+|![FPGA]https://github.com/Falconer546/DE1-projekt/blob/main/nexys-a7-obl-600.png|
+|:--:| 
+|*Nexys A7-50T*|
 https://digilent.com/reference/programmable-logic/nexys-a7/start
+
+
 
 HC-SR04
 Ultrasonic distance sensor
