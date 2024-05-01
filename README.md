@@ -22,7 +22,7 @@ https://navody.dratek.cz/navody-k-produktum/meric-vzdalenosti-ultrazvukovy.html
 
 # VHDL modules description
 
-Ultrasonic sensor utilizes two blocks
+#### Ultrasonic sensor utilizes two blocks
 The 'echo_triger' block directly tells the HC-SR04 sensor to emit a pulse.
 The 'distance_measure' block processes the returned distance, which it converts to 16 levels, which are then used in other modules.
 
@@ -32,17 +32,17 @@ https://github.com/Falconer546/DE1-projekt/blob/main/echo_triger
 Code for distance_measure module
 https://github.com/Falconer546/DE1-projekt/blob/main/distance_measure
 
-PS_availability module description
+#### PS_availability module description
 
 PS_availability module decides if the Parking Space is empty or not and controls LED signaling.
 https://github.com/Falconer546/DE1-projekt/blob/main/PS_availability
 
-Bin2seg module description
+#### Bin2seg module description
 
 Bin2seg module translate binary output from distance_measure for seven-segment display.
 https://github.com/Falconer546/DE1-projekt/blob/main/bin2seg
 
-### Clk (Clock) module descrition
+#### Clk (Clock) module descrition
 
 Clk module is used as reference time stamp between echo_triger and distance_measure.
 
