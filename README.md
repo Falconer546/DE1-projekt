@@ -13,7 +13,7 @@ Jan Božejovský, Tomáš Fešar, Roman Knížek, Jiří Vašulín
 Nexys A7-50T
 
 FPGA
-|![FPGA](https://github.com/Falconer546/DE1-projekt/blob/main/NexysA7-obl-600__85101.jpg)|
+|![FPGA](https://github.com/Falconer546/DE1-projekt/blob/main/nexys-a7-obl-600.png)|
 |:--:| 
 |*Nexys A7-50T*|
 https://digilent.com/reference/programmable-logic/nexys-a7/start
