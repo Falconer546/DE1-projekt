@@ -27,8 +27,10 @@ The 'echo_triger' block directly tells the HC-SR04 sensor to emit a pulse.
 The 'distance_measure' block processes the returned distance, which it converts to 16 levels, which are then used in other modules.
 
 Code for echo_triger module
+
 https://github.com/Falconer546/DE1-projekt/blob/main/echo_triger
 Code for distance_measure module
+
 https://github.com/Falconer546/DE1-projekt/blob/main/distance_measure
 
 
