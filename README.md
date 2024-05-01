@@ -25,7 +25,6 @@ Ultrasonic distance sensor
 |![sensor](https://github.com/Falconer546/DE1-projekt/blob/main/sensor.jpg)|
 |:--:| 
 |*Sensor HC-SR04*|
-
 https://navody.dratek.cz/navody-k-produktum/meric-vzdalenosti-ultrazvukovy.html
 
 
