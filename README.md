@@ -45,6 +45,7 @@ https://github.com/Falconer546/DE1-projekt/blob/main/bin2seg
 #### Clk (Clock) module descrition
 
 Clk module is used as reference time stamp between echo_triger and distance_measure.
+https://github.com/Falconer546/DE1-projekt/blob/main/clk
 
 
 #### Top_level module description
