@@ -16,6 +16,7 @@ https://digilent.com/reference/programmable-logic/nexys-a7/start
 
 HC-SR04
 Ultrasonic distance sensor
+https://github.com/Falconer546/DE1-projekt/blob/main/sensor.jpg
 https://navody.dratek.cz/navody-k-produktum/meric-vzdalenosti-ultrazvukovy.html
 
 
